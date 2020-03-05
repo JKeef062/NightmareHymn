@@ -16,6 +16,6 @@ and viewing of the C++ source files. To install these required components use th
     2. Click on Download Visual Studio  
     3. Select any of the; community, professional, or enterprise options  
     4. Run the visual studio installer  
-    5. Make sure you select the option to install the components labeled  
-       'Game Development with C++'  
+    5. Make sure you select the option to install the component labeled  
+       'Game Development with Unity'  
     6. Finish the installation  
