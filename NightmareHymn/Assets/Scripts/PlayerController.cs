@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float gravityScale;
     public float airMovement;
+    float startSpd;
 
-
+    bool running;
     private Vector2 moveDirection;
 
 
@@ -22,13 +23,13 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         maxJumps = 2;
+        startSpd = moveSpeed;
+        running = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        
 
         if (controller.isGrounded)
         {
@@ -44,6 +45,23 @@ public class PlayerController : MonoBehaviour
             moveDirection.y = jumpForce;
             jumpCount += 1;
             print(jumpCount);
+        }
+        if (Input.GetButton("Run"))
+        {
+            if(running == false)
+            {
+                moveSpeed = moveSpeed * 1.5f;
+                running = true;
+            }
+            
+        }
+        else
+        {
+            if (running == true)
+            {
+                moveSpeed = startSpd;
+            }
+            running = false;
         }
 
         moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
