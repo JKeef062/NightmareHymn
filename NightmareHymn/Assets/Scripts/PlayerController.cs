@@ -5,15 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
-    //public Rigidbody theRB;
     public float jumpForce;
     int jumpCount;
     public int maxJumps;
-    public CharacterController controller;
-    public float gravityScale;
+    public Rigidbody theRB;
     public float airMovement;
     float startSpd;
-
+    bool inAir;
+    public float gravity;
     bool running;
     private Vector2 moveDirection;
 
@@ -21,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        theRB = GetComponent<Rigidbody>();
         maxJumps = 2;
         startSpd = moveSpeed;
         running = false;
@@ -30,50 +29,45 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (controller.isGrounded)
-        {
-            jumpCount = 0;
-            moveDirection = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, moveDirection.y);
-        }
-        else
-        {
-            moveDirection = (new Vector2(Input.GetAxis("Horizontal") * moveSpeed * airMovement, moveDirection.y));
-        }
         if (Input.GetButtonDown("Jump") && jumpCount < maxJumps)
         {
-            moveDirection.y = jumpForce;
+            theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
             jumpCount += 1;
-            print(jumpCount);
-        }
-        if (Input.GetButton("Run"))
-        {
-            if(running == false)
-            {
-                moveSpeed = moveSpeed * 1.5f;
-                running = true;
-            }
             
+        }
+
+        if (inAir == true)
+        {
+            moveSpeed = airMovement * startSpd;
         }
         else
         {
-            if (running == true)
-            {
-                moveSpeed = startSpd;
-            }
-            running = false;
+            moveSpeed = startSpd;
         }
 
-        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
-        controller.Move(moveDirection * Time.deltaTime);
+        //Gravity
+        theRB.AddForce(Vector2.down * gravity * theRB.mass);
+
+        //movement
+        theRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, theRB.velocity.y);
+
+
     }
 
-  /*  void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Floor")
         {
             jumpCount = 0;
+            inAir = false;
         }
     }
-    */
+    
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Floor")
+        {
+            inAir = true;
+        }
+    }
 }
