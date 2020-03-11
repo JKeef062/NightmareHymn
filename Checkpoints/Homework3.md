@@ -8,7 +8,7 @@
   * Player mobility (including double jump and wall jump) working  
   * Alpha version of first level completed  
   * Directional shooting and bullet interactions with level objects working  
-## Incomplete Tasks and Explanation  
+### Incomplete Tasks and Explanation  
   * Enemy AI not started  
   * First level is currently not winnable  
     
