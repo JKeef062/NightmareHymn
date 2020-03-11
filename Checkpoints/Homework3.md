@@ -9,8 +9,8 @@
   * Alpha version of first level completed  
   * Directional shooting and bullet interactions with level objects working  
 ## Incomplete Tasks and Explanation  
-    * Enemy AI not started  
-    * First level is currently not winnable  
+  * Enemy AI not started  
+  * First level is currently not winnable  
 *Explanation:*  
 Midway through this development block, we decided to switch our development  
 platform to Unity. This descision was made because though Unreal Engine 4  
