@@ -12,7 +12,7 @@
     * Enemy AI not started  
     * First level is currently not winnable  
 *Explanation:*  
-      Midway through this development block, we decided to switch our development  
+Midway through this development block, we decided to switch our development  
 platform to Unity. This descision was made because though Unreal Engine 4  
 is far more powerful, most of the required functionality is pre-built into  
 the engine. We investigated the possibility of simply writing our own  
