@@ -3,7 +3,7 @@
   * Alpha version of first level completed (not including obstacles & traps)    
     * This level should be winnable  
   * Shooting and bullet interactions with level objects and in-game characters completed  
-
+  
 # Current Project Status (Accomplishments at Deadline)  
   * Player mobility (including double jump and wall jump) working  
   * Alpha version of first level completed  
@@ -24,7 +24,7 @@ now had to port all of our previous development into the Unity engine
 which limited the amount of time that we could spend dedicated to implementing  
 new functionality.  
   
-
+  
 # Planned Project Status at Next Deadline (Bold Entries Signify Incomplete Tasks From Previous Deadlines)  
 
 # Current Working Game / Functionality  
