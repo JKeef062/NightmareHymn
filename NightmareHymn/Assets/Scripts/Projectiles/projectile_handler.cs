@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-public class ProjectileMovement : MonoBehaviour
+public class projectile_handler : MonoBehaviour
 {
     // ------------ VARIBALES/REFERENCES ------------
     public float speed;
     public Rigidbody RBbullet;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +18,9 @@ public class ProjectileMovement : MonoBehaviour
     {
         Debug.Log("Bullet hit a: " + info.tag);
         Destroy(gameObject);
+    }
+
+    public float getDamage() {
+        return damage;
     }
 }
