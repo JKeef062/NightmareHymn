@@ -10,7 +10,7 @@
   * Directional shooting and bullet interactions with level objects working  
 ### Incomplete Tasks and Explanation  
   * Enemy AI started but simple
-  * First level is currently not winnable  
+  * First level is very short  
 
 *Explanation:*  
 Midway through this development block, we decided to switch our development  
@@ -32,7 +32,7 @@ new functionality.
   * Start UI for game.
   * flesh out first level, start and try to finish second level.  
   
-# Current Working Game / Functionality  
+# Current Functionality  
 ## Basic Enemy AI
 ![Enemy AI](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/BasicEnemyAI.gif)  
 
