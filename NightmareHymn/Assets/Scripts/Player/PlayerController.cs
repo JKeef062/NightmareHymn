@@ -60,23 +60,23 @@ public class PlayerController : MonoBehaviour
     // Handle player collision
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "DeathTrap")
+        //Debug.Log("Player hit: " + other.gameObject.tag);
+
+        if (other.gameObject.CompareTag("DeathTrap"))
         {
-            Debug.Log("Player Died");
-            Application.Quit();
+            FindObjectOfType<GameManager>().EndGame();
         }
 
         if(other.gameObject.tag == "Floor")
         {
-            Debug.Log("Player hit: " + other.gameObject.tag);
             jumpCount = 0;
             inAir = false;
         }
     }
-    
+
     void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.tag == "Floor")
+        if (other.gameObject.CompareTag("Floor"))
         {
             inAir = true;
         }

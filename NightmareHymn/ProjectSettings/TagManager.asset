@@ -8,6 +8,7 @@ TagManager:
   - DeathTrap
   - bullet
   - Enemy
+  - WinLevel
   layers:
   - Default
   - TransparentFX
