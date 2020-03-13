@@ -34,16 +34,16 @@ new functionality.
   
 # Current Working Game / Functionality  
 ## Basic Enemy AI
-![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/BasicEnemyAI.gif)  
+![Enemy AI](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/BasicEnemyAI.gif)  
 
 ## Basic Shooting   
-![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/BasicShooting.gif)  
+![Directional Shooting](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/BasicShooting.gif)  
 
 ## Player Death and Level Restart
-![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/Death_Restart.gif)  
+![Fall Death and Restart](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/Death_Restart.gif)  
 
 ## Level Win Triggering
-![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/WinLevel.gif)
+![Win Level](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/WinLevel.gif)
 
 ## Full Alpha Level Demo
-![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/FullLevel_Alpha.gif)  
+![Full Level Playthrough](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/FullLevel_Alpha.gif)  
