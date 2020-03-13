@@ -30,5 +30,20 @@ new functionality.
   * More level traps, add more things for player to interact with and avoid, aim for 2 or 3 more traps/obstacles
   * Flesh out player shooting and bullet interactions
   * Start UI for game.
-  * flesh out first level, start and try to finish second level.
+  * flesh out first level, start and try to finish second level.  
+  
 # Current Working Game / Functionality  
+## Basic Enemy AI
+![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/BasicEnemyAI.gif)  
+
+## Basic Shooting   
+![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/BasicShooting.gif)  
+
+## Player Death and Level Restart
+![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/Death_Restart.gif)  
+
+## Level Win Triggering
+![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/WinLevel.gif)
+
+## Full Alpha Level Demo
+![Alt Text](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/HW_gifs/FullLevel_Alpha.gif)  
