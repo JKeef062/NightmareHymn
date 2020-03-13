@@ -6,10 +6,17 @@ public class BaseEnemy : MonoBehaviour
 {
     public float health;
     public float speed;
-    public GameObject player; 
+    private float startSpeed;
+    public GameObject player;
     //public vector2 distfromTarget; possibly add later
     public GameObject weapon; //enemies weapon, allows changing of weapons
-   
+    private Transform playerTransform;
+    void Start()
+    {
+        playerTransform = player.GetComponent<Transform>();
+        startSpeed = speed;
+    }
+        
 
 
     // Update is called once per frame
@@ -20,15 +27,24 @@ public class BaseEnemy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Debug.Log(health);
+
+    //moving towards player
+    transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+        
     }
 
-    void OnCollsionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "bullet")
+       if(other.gameObject.tag == "Player")
         {
-            health -= 5;//other.gameObject.GetComponent<projectile_handler>().getDamage();
+            Debug.Log("Player touched by enemy");
+            speed = 0;
         }
+    }
+
+    void OnCollisionExit()
+    {
+        speed = startSpeed;
     }
 
     bool isDead()
