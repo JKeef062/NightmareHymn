@@ -10,10 +10,12 @@ public class BaseEnemy : MonoBehaviour
     public GameObject player;
     //public vector2 distfromTarget; possibly add later
     public GameObject weapon; //enemies weapon, allows changing of weapons
-    private Transform playerTransform;
+    
+  
+
     void Start()
     {
-        playerTransform = player.GetComponent<Transform>();
+        
         startSpeed = speed;
     }
         
@@ -28,8 +30,7 @@ public class BaseEnemy : MonoBehaviour
         }
 
 
-    //moving towards player
-    transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+  
         
     }
 
@@ -40,6 +41,7 @@ public class BaseEnemy : MonoBehaviour
             Debug.Log("Player touched by enemy");
             speed = 0;
         }
+
     }
 
     void OnCollisionExit()
