@@ -1267,6 +1267,7 @@ MonoBehaviour:
   player: {fileID: 1290276056}
   weapon: {fileID: 0}
   SafetyDistance: 5
+  rb: {fileID: 0}
 --- !u!135 &1476226508
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1356,7 +1357,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!4 &1737199818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4994770820589128257, guid: 64193c178742c754fb696f4a650f2012,

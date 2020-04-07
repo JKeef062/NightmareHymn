@@ -28,20 +28,30 @@ public class floatingTurretEnemy : BaseEnemy
         //moving towards player
         if (distance > SafetyDistance)
         {
-            rb.constraints = ~RigidbodyConstraints.FreezePositionX | ~RigidbodyConstraints.FreezePositionY;
-
+            Debug.Log("Player is too far away MOVE NOW");
             transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
 
         }
         else
         {
-            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY; 
+            Debug.Log("SHOOT distance");
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-
+        // Player runs into enemey freeze enemy postion
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
   
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        // When no longer contacting the player, unfreeze the postition and continue to
+        // chase the player
+        rb.constraints = ~RigidbodyConstraints.FreezeAll;
     }
 }
