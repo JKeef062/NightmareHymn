@@ -24,17 +24,17 @@ public class floatingTurretEnemy : BaseEnemy
     {
         distance = Vector3.Distance(playerTransform.position, transform.position);
 
-        Debug.Log(distance);
+        //Debug.Log(distance);
         //moving towards player
         if (distance > SafetyDistance)
         {
-            Debug.Log("Player is too far away MOVE NOW");
+            //Debug.Log("Player is too far away MOVE NOW");
             transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
 
         }
         else
         {
-            Debug.Log("SHOOT distance");
+            //Debug.Log("SHOOT distance");
         }
     }
 
@@ -45,7 +45,6 @@ public class floatingTurretEnemy : BaseEnemy
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
-  
     }
 
     private void OnCollisionExit(Collision collision)
@@ -53,5 +52,13 @@ public class floatingTurretEnemy : BaseEnemy
         // When no longer contacting the player, unfreeze the postition and continue to
         // chase the player
         rb.constraints = ~RigidbodyConstraints.FreezeAll;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("bullet"))
+        {
+            health -= 1;
+        }
     }
 }
