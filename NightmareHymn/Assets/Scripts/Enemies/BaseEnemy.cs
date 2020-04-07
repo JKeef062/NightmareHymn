@@ -15,7 +15,6 @@ public class BaseEnemy : MonoBehaviour
 
     void Start()
     {
-        
         startSpeed = speed;
     }
         

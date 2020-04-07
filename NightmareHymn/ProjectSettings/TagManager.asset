@@ -9,6 +9,7 @@ TagManager:
   - bullet
   - Enemy
   - WinLevel
+  - Enemybullet
   layers:
   - Default
   - TransparentFX
