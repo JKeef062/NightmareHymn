@@ -2690,7 +2690,7 @@ GameObject:
   - component: {fileID: 1330427244}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2773,7 +2773,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1352137603
 PrefabInstance:
@@ -3206,6 +3206,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1264392726}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1543953531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2635426632284030267, guid: 567bb9765e64aae42b9b6bc104d09aff,
+    type: 3}
+  m_PrefabInstance: {fileID: 2635426632425951511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1586998083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4994770820589128257, guid: 64193c178742c754fb696f4a650f2012,
@@ -3485,6 +3491,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64193c178742c754fb696f4a650f2012, type: 3}
+--- !u!4 &1924751442 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3602558595460595821, guid: 567bb9765e64aae42b9b6bc104d09aff,
+    type: 3}
+  m_PrefabInstance: {fileID: 2635426632425951511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1929432271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3530,7 +3542,7 @@ PrefabInstance:
     - target: {fileID: 1235061112088086483, guid: bafeda348aacd274e8f90363b53a0c8c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1235061112088086483, guid: bafeda348aacd274e8f90363b53a0c8c,
         type: 3}
@@ -3816,6 +3828,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2635426633706790344, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1330427246}
+    - target: {fileID: 2635426633706790344, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: baseBullet
+      value: 
+      objectReference: {fileID: 3979120632781998166, guid: 41ce68e118e60914dbee2bdbeb8e3c5a,
+        type: 3}
+    - target: {fileID: 2635426633706790344, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1543953531}
+    - target: {fileID: 2635426633706790344, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: playerLoc
+      value: 
+      objectReference: {fileID: 1290276062}
+    - target: {fileID: 2635426633706790344, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: firingRadius
+      value: 
+      objectReference: {fileID: 1924751442}
+    - target: {fileID: 2635426633706790344, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1330427246}
     - target: {fileID: 2635426633706790345, guid: 567bb9765e64aae42b9b6bc104d09aff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3854,7 +3897,7 @@ PrefabInstance:
     - target: {fileID: 2635426633706790345, guid: 567bb9765e64aae42b9b6bc104d09aff,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2635426633706790345, guid: 567bb9765e64aae42b9b6bc104d09aff,
         type: 3}
@@ -3871,10 +3914,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2635426633706790350, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2635426633706790351, guid: 567bb9765e64aae42b9b6bc104d09aff,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342210033887615977, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: m_MotionVectors
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 567bb9765e64aae42b9b6bc104d09aff, type: 3}

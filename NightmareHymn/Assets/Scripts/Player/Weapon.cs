@@ -1,49 +1,45 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Weapon : MonoBehaviour
 {
-    // ------------ REFERENCES/VARIABLES ------------
-    public Transform firePoint;     // Location to fire bullets from
-    public Transform playerLoc;     // Current player location
+    
+    // Rotational Shooting implementation
     public GameObject baseBullet;   // Reference to base bullet prefab
-    float vertDirection;            // Holds a value representing the 
-                                        //vertical axis on controller
-    float horizDirection;           // Holds a value representing the 
-                                        //vertical axis on controller
+    public Transform firingRadius;  // Reference to the sphere that defines the
+                                        // locations a player can fire from
+    public Transform firePoint;     // Location of to fire bullets from
+    public float aimSpeed = 5f;     // Defines how fast to change the firing angle
+    public Camera mainCamera;       // Refernce to the in game camera
+                                        // Used to reference the mouse position in game position
 
-    // Update is called once per frame
     void Update()
     {
-        vertDirection = Input.GetAxisRaw("Vertical");
-        horizDirection = Input.GetAxisRaw("Horizontal");
-        SetFirePoint(vertDirection, horizDirection);
+        SetFirePoint();
 
+        //Debug.Log(Input.mousePosition.ToString());
         if (Input.GetButtonDown("Fire1"))
         {
             ShootBaseWeapon();
         }
     }
 
-    // This funtion sets the firepoint based on the players orientation
-    // and if they are holding up or not
-    void SetFirePoint(float verticalAxis, float horizAxis)
+    // Update the FirePoint based on the location of the mouse
+    // NOTE: firePoint is a child of the firing radius so rotation to the 
+    //       firingRadius sphere updates the firePoint location
+    void SetFirePoint()
     {
-        // Limit player to shooting in cardinal directions
-        if (verticalAxis > 0)
-        {
-            firePoint.position = new Vector3(playerLoc.position.x, playerLoc.position.y + 1f, playerLoc.position.z);
-            firePoint.rotation = Quaternion.Euler(0, 0, 90);
-        }
-        else if (horizAxis < 0)
-        {
-            firePoint.position = new Vector3(playerLoc.position.x - 1f , playerLoc.position.y, playerLoc.position.z);
-            firePoint.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            firePoint.position = new Vector3(playerLoc.position.x + 1f, playerLoc.position.y, playerLoc.position.z);
-            firePoint.rotation = Quaternion.Euler(0, 0, 0);
-        }
+        // Get the mouse position in releation to in game gamera
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        // Get the vector that represents the desired aim
+        Vector2 direction = new Vector3(mousePos.x - firingRadius.position.x, 
+                                        mousePos.y - firingRadius.position.y);
+        direction.Normalize();
+
+        // Rotate the radius sphere to match the direction defined above
+        firingRadius.right = direction;
     }
 
     // This function spawns a new base bullet to the game at the current
