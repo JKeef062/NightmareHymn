@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public int health;
     public float jumpForce;
     int jumpCount;
     public int maxJumps;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         maxJumps = 2;
         startSpd = moveSpeed;
         running = false;
+        health = 10;
     }
 
     // Update is called once per frame
@@ -39,6 +41,10 @@ public class PlayerController : MonoBehaviour
             theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
             jumpCount += 1;
             
+        }
+        if(isDead() == true)
+        {
+            FindObjectOfType<GameManager>().EndGame();
         }
 
         if (inAir == true)
@@ -67,11 +73,14 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<GameManager>().EndGame();
         }
 
-        if(other.gameObject.tag == "Floor")
+
+        if (other.gameObject.tag == "Floor")
         {
             jumpCount = 0;
             inAir = false;
         }
+
+        
     }
 
     void OnCollisionExit(Collision other)
@@ -79,6 +88,26 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Floor"))
         {
             inAir = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemybullet"))
+        {
+            health -= 1;
+        }
+    }
+
+    bool isDead()
+    {
+        if(health <= 0)
+        {
+            return(true);
+        }
+        else
+        {
+            return (false);
         }
     }
 
