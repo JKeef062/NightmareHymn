@@ -6,6 +6,9 @@ public class FallDeath : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        theGM.EndGame();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            theGM.EndGame();
+        }
     }
 }

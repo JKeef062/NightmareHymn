@@ -20,7 +20,7 @@ public class projectile_handler : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public float getDamage() {
+    public float GetDamage() {
         return damage;
     }
 }

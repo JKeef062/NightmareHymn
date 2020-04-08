@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class floatingTurretEnemy : BaseEnemy
 {
-
     public float SafetyDistance;
     private Transform playerTransform;
     private float distance;
@@ -38,9 +37,6 @@ public class floatingTurretEnemy : BaseEnemy
     void FixedUpdate()
     {
         distance = Vector3.Distance(playerTransform.position, transform.position);
-
-        //Debug.Log(distance);
-
         transform.LookAt(playerTransform);
 
         //moving towards player
