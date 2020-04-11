@@ -30,7 +30,6 @@
     * boss for level 2 possibly started
     
 # Current Functionality  
-## Basic Enemy AI
 ![Turret AI and Killing Enemies](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/Deadline_GIFs/TurretAI_BulletInteraction.gif)   
 This simple AI has the floating turret follow the players location until it is within a certain distance that it begins shooting at the player. The code for this behavior can be seen in the 'Assets/Scripts/Enemies/floatingTurretEnemy.cs' script. It simply has a reference to the players current game location and moves at the specified speed towards the player using a vector that constantly points at the player.  
 
