@@ -44,10 +44,11 @@ public class PlayerController : MonoBehaviour
             theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
             jumpCount += 1;
         }
-        if (Input.GetButtonUp("Jump"))
+
+        /*if (Input.GetButtonUp("Jump"))
         {
             theRB.velocity = new Vector2(theRB.velocity.x, 0);
-        }
+        }*/
 
 
         // Handle player death
@@ -76,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
 
         // Apply custom gravity scale to player
-        //theRB.AddForce(Vector2.down * gravity * theRB.mass);
+        theRB.AddForce(Vector2.down * gravity * theRB.mass);
 
 
         // Move the player according to the horizontal controller input

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JaredLv1_Alpha.unity
     guid: ea7cc3908c0ec3f4f876865957479cc4
+  - enabled: 1
+    path: Assets/Scenes/OptionsMenu.unity
+    guid: ec0217f34bd6a404f8a74bd595ab739e
   m_configObjects: {}
