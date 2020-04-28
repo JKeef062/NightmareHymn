@@ -10,8 +10,10 @@ public class BaseEnemy : MonoBehaviour
     public GameObject player;
     //public vector2 distfromTarget; possibly add later
     public GameObject weapon; //enemies weapon, allows changing of weapons
-    
-  
+
+    public GameObject healthdrop;
+    public GameObject manadrop;
+
 
     void Start()
     {
@@ -25,6 +27,15 @@ public class BaseEnemy : MonoBehaviour
     {
         if (isDead())
         {
+            int chance = Random.Range(0, 2);
+            if(chance == 0)
+            {
+                Instantiate(healthdrop,transform.position,transform.rotation);
+            }
+            else
+            {
+                Instantiate(manadrop,transform.position,transform.rotation);
+            }
             Destroy(gameObject);
         }
 

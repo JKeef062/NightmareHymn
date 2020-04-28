@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - WinLevel
   - Enemybullet
+  - collisionenemyconstraint
+  - Health
+  - Mana
   layers:
   - Default
   - TransparentFX

@@ -111,6 +111,10 @@ MonoBehaviour:
   speed: 2
   player: {fileID: 0}
   weapon: {fileID: 0}
+  healthdrop: {fileID: 3411541667674104378, guid: 41ba6feadcb58364494f5a22d53b542c,
+    type: 3}
+  manadrop: {fileID: 6699579735439932653, guid: 6de7af1e53d52aa408511197f95a0ca9,
+    type: 3}
   SafetyDistance: 5
   rb: {fileID: 0}
   fireRate: 100

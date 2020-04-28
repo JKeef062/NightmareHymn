@@ -36,4 +36,28 @@ public class CollideEnemy : BaseEnemy
         //rb.velocity = new Vector3((LorR * chaseSpeed) * Time.deltaTime, rb.velocity.y, rb.velocity.z);
         rb.AddForce(new Vector3((LorR * chaseSpeed) * Time.deltaTime, rb.velocity.y, rb.velocity.z), ForceMode.Impulse);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("bullet"))
+        {
+            health -= 1;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // Player runs into enemey freeze enemy postion
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        // When no longer contacting the player, unfreeze the postition and continue to
+        // chase the player
+        rb.constraints = ~RigidbodyConstraints.FreezeAll;
+    }
 }
