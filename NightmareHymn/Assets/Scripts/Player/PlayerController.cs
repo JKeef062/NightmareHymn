@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection;      // Vector representign movement direction of player
     public float horizAxis;             // Holds a value representing the left/right controller input
     public float fallingGravScale;      // Scalar of how much increased gravity is applied when player is falling
+    public bool isJumping;              // True when the player has pressed the jump button
                                         
 
 
@@ -31,32 +32,39 @@ public class PlayerController : MonoBehaviour
         health = 10;
     }
 
-    // Update is called once per frame
+    // Get player input from keyboard/controller
     void Update()
     {
-        // Get controller horizontal direction
+        // Get the horizontal direction
         horizAxis = Input.GetAxisRaw("Horizontal");
 
-
-        // Handle player jumping
+        // Check if player has hit jump button, and is withing jump count range
         if (Input.GetButtonDown("Jump") && jumpCount < maxJumps)
         {
-            theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-            jumpCount += 1;
+            isJumping = true;
         }
 
-        /*if (Input.GetButtonUp("Jump"))
-        {
-            theRB.velocity = new Vector2(theRB.velocity.x, 0);
-        }*/
-
-
         // Handle player death
-        if(isDead() == true)
+        if (isDead() == true)
         {
             FindObjectOfType<GameManager>().EndGame();
         }
+    }
 
+
+    // Handle all physics interaction on the player
+    void FixedUpdate()
+    {
+        // Move the player according to the horizontal controller input
+        theRB.velocity = new Vector2(horizAxis * moveSpeed, theRB.velocity.y);
+
+        // Handle player jumping
+        if (isJumping == true)
+        {
+            theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+            jumpCount += 1;
+            isJumping = false;
+        }
 
         // Handle airborne movement and increased fall gravity
         if (inAir == true)
@@ -75,14 +83,10 @@ public class PlayerController : MonoBehaviour
             moveSpeed = startSpd;
         }
 
-
         // Apply custom gravity scale to player
-        theRB.AddForce(Vector2.down * gravity * theRB.mass);
-
-
-        // Move the player according to the horizontal controller input
-        theRB.velocity = new Vector2(horizAxis * moveSpeed, theRB.velocity.y);
+        theRB.AddForce(Vector2.down * gravity * theRB.mass * Time.deltaTime);
     }
+
 
     // Handle player collision
     void OnCollisionEnter(Collision other)
