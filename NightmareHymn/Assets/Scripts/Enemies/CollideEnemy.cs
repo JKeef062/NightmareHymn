@@ -59,5 +59,7 @@ public class CollideEnemy : BaseEnemy
         // When no longer contacting the player, unfreeze the postition and continue to
         // chase the player
         rb.constraints = ~RigidbodyConstraints.FreezeAll;
+        rb.constraints = RigidbodyConstraints.FreezeRotation ^ RigidbodyConstraints.FreezePositionY ^ RigidbodyConstraints.FreezePositionZ;
+     
     }
 }
