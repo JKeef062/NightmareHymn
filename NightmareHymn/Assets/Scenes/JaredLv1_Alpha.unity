@@ -731,12 +731,17 @@ PrefabInstance:
     - target: {fileID: 2635426633706790349, guid: 567bb9765e64aae42b9b6bc104d09aff,
         type: 3}
       propertyPath: fallingGravScale
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2635426633706790349, guid: 567bb9765e64aae42b9b6bc104d09aff,
         type: 3}
       propertyPath: jumpForce
-      value: 7
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635426633706790349, guid: 567bb9765e64aae42b9b6bc104d09aff,
+        type: 3}
+      propertyPath: gravity
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 2635426633706790351, guid: 567bb9765e64aae42b9b6bc104d09aff,
         type: 3}
