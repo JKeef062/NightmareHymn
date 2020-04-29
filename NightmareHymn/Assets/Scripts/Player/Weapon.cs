@@ -7,7 +7,8 @@ public class Weapon : MonoBehaviour
     // Rotational Shooting implementation
     public GameObject baseBullet;   // Reference to base bullet prefab
     public Transform firingRadius;  // Reference to the sphere that defines the
-                                        // locations a player can fire from
+                                    // locations a player can fire from
+    public GameObject LavaCanon;    // Reference to secondary weapon
     public Transform firePoint;     // Location of to fire bullets from
     public float aimSpeed = 5f;     // Defines how fast to change the firing angle
     public Camera mainCamera;       // Refernce to the in game camera
@@ -15,12 +16,19 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        // Constantly update the fire point to mouse location
         SetFirePoint();
-
-        //Debug.Log(Input.mousePosition.ToString());
+        
+        // Check for user fire input
         if (Input.GetButtonDown("Fire1"))
         {
             ShootBaseWeapon();
+        }
+
+        // Handle shooting secondary weapon  ADD DEPENDANCY ON MANA!!!!!!!!
+        if (Input.GetButtonDown("Fire2")) 
+        {
+            ShootSecondaryWeapon();
         }
     }
 
@@ -47,5 +55,12 @@ public class Weapon : MonoBehaviour
     void ShootBaseWeapon()
     {
         Instantiate(baseBullet, firePoint.position, firePoint.rotation);
+    }
+
+
+    // This function
+    void ShootSecondaryWeapon()
+    {
+        Instantiate(LavaCanon, transform.position, transform.rotation);
     }
 }

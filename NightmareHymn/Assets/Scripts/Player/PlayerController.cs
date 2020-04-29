@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float horizAxis;             // Holds a value representing the left/right controller input
     public float fallingGravScale;      // Scalar of how much increased gravity is applied when player is falling
     public bool isJumping;              // True when the player has pressed the jump button
+    public HealthBar playerHealth;      // Display for the player's current health
 
 
 
@@ -26,10 +27,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         theRB = GetComponent<Rigidbody>();
+        
+        // Initialize player variable components
         maxJumps = 2;
         startSpd = moveSpeed;
         running = false;
         health = 10;
+
+        // Initialize full healthbar for newly spawned player
+        playerHealth.SetFullHealth(health);
     }
 
     // Get player input from keyboard/controller
@@ -96,7 +102,12 @@ public class PlayerController : MonoBehaviour
         // Handle player hitting instant death trap
         if (other.gameObject.CompareTag("DeathTrap"))
         {
-            FindObjectOfType<GameManager>().EndGame();
+            // Fully deplete player health
+            health = 0;
+
+            // Update the healthbar
+            playerHealth.UpdateHealth(health);
+            //FindObjectOfType<GameManager>().EndGame();
         }
         //handle win area(need to go to win screen/nxt level but for now acts like death trap)
         if (other.gameObject.CompareTag("Finish"))
@@ -113,10 +124,12 @@ public class PlayerController : MonoBehaviour
 
         if(other.gameObject.tag == "Enemy")
         {
+            // Decrment health
             health--;
+
+            // Update health bar
+            playerHealth.UpdateHealth(health);
         }
-
-
     }
 
     void OnCollisionExit(Collision other)
@@ -126,7 +139,6 @@ public class PlayerController : MonoBehaviour
         {
             inAir = true;
         }
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -134,13 +146,19 @@ public class PlayerController : MonoBehaviour
         // Take damage if hit by enemy projectile
         if (other.gameObject.CompareTag("Enemybullet"))
         {
-            health -= 1;
+            health--;
+
+            // Update health bar
+            playerHealth.UpdateHealth(health);
         }
 
         if (other.gameObject.CompareTag("Health") && health + 1 <= 10)
         {
             Destroy(other.gameObject);
             health++;
+
+            // Update health bar
+            playerHealth.UpdateHealth(health);
         }
         else if (other.gameObject.CompareTag("Mana"))
         {

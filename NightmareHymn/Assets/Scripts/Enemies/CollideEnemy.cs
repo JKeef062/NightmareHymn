@@ -55,10 +55,17 @@ public class CollideEnemy : BaseEnemy
 
     private void OnTriggerEnter(Collider other)
     {
+        // Decrement enemy health when hit by player projectile
         if (other.gameObject.CompareTag("bullet"))
         {
             health -= 1;
         }
+        // Handle secondary weapon interaction
+        if (other.gameObject.CompareTag("LavaCanon"))
+        {
+            health -= 10;
+        }
+
         //setting of booleans for constraints
         if (other.gameObject.CompareTag("leftConstraint"))
         {

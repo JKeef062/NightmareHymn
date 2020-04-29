@@ -76,9 +76,16 @@ public class floatingTurretEnemy : BaseEnemy
 
     private void OnTriggerEnter(Collider other)
     {
+        // Handle enemy hit with base bullet
         if (other.gameObject.CompareTag("bullet"))
         {
             health -= 1;
+        }
+
+        // Handle enemy hit with lava canon
+        if (other.gameObject.CompareTag("LavaCanon"))
+        {
+            health -= 20;
         }
     }
 
