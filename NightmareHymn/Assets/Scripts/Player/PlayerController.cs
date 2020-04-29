@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public int maxJumps;                // Max allowed jumps in each airborne state
     public Rigidbody theRB;             // Reference to player RigidBody component
     public float airMovement;           // How much control player has in the air
-    float startSpd;                     
+    float startSpd;
     bool inAir;                         // True if the player is not touching a floor
     public float gravity;               // Custom gravity scale for player
     bool running;                       // True if the player is running
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float horizAxis;             // Holds a value representing the left/right controller input
     public float fallingGravScale;      // Scalar of how much increased gravity is applied when player is falling
     public bool isJumping;              // True when the player has pressed the jump button
-                                        
+
 
 
     // Start is called before the first frame update
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
             jumpCount = 0;
             inAir = false;
         }
- 
+
         if(other.gameObject.tag == "Enemy")
         {
             health--;
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         {
             inAir = true;
         }
-       
+
     }
 
     void OnTriggerEnter(Collider other)

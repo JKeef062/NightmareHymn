@@ -141,13 +141,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   health: 0
-  jumpForce: 7
+  jumpForce: 8
   maxJumps: 2
   theRB: {fileID: 0}
   airMovement: 0.75
-  gravity: 3
+  gravity: 8.5
   horizAxis: 0
-  fallingGravScale: 7
+  fallingGravScale: 3
   isJumping: 0
 --- !u!54 &2635426633706790350
 Rigidbody:
