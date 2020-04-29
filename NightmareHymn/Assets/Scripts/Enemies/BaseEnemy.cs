@@ -34,7 +34,8 @@ public class BaseEnemy : MonoBehaviour
             }
             else
             {
-                Instantiate(manadrop,transform.position,transform.rotation);
+                //no need to create mana yet un comment when attack done
+                //Instantiate(manadrop,transform.position,transform.rotation);
             }
             Destroy(gameObject);
         }

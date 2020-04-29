@@ -98,6 +98,11 @@ public class PlayerController : MonoBehaviour
         {
             FindObjectOfType<GameManager>().EndGame();
         }
+        //handle win area(need to go to win screen/nxt level but for now acts like death trap)
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
 
         // Handle player landing from airborne state
         if (other.gameObject.tag == "Floor")
@@ -105,18 +110,23 @@ public class PlayerController : MonoBehaviour
             jumpCount = 0;
             inAir = false;
         }
+ 
+        if(other.gameObject.tag == "Enemy")
+        {
+            health--;
+        }
 
-        
+
     }
 
     void OnCollisionExit(Collision other)
     {
-
         // Handle leaving the ground
         if (other.gameObject.CompareTag("Floor"))
         {
             inAir = true;
         }
+       
     }
 
     void OnTriggerEnter(Collider other)
@@ -125,6 +135,17 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Enemybullet"))
         {
             health -= 1;
+        }
+
+        if (other.gameObject.CompareTag("Health") && health + 1 <= 10)
+        {
+            Destroy(other.gameObject);
+            health++;
+        }
+        else if (other.gameObject.CompareTag("Mana"))
+        {
+            Destroy(other.gameObject);
+            //implement when the area attack is in
         }
     }
 
