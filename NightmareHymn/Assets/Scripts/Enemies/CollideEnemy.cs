@@ -22,35 +22,38 @@ public class CollideEnemy : BaseEnemy
 
     void FixedUpdate()
     {
-        LorR = playerTransform.position.x - transform.position.x;
-        
-        if (LorR > 0 && rightstrained == false)
+        // Ensure the player object exists
+        if (playerTransform != null)
         {
-            LorR = 1f;
-        }
-        else if (LorR < 0 && leftstrained == false)
-        {
-            LorR = -1f;
-        }
-        else
-        {
-            LorR = 0f;
-        }
+            // Get player location in relation to this enemy
+            LorR = playerTransform.position.x - transform.position.x;
 
-        //handles when the enemy is colliding with a constraint dont let him move
-        if (LorR != 0)
-        {
-            
-            rb.AddForce(new Vector3((LorR * chaseSpeed) * Time.deltaTime, rb.velocity.y, rb.velocity.z), ForceMode.Impulse);
-        }
-        else
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.Sleep();
-        }
+            // Move the enemy toward the player within its determined bounds
+            if (LorR > 0 && rightstrained == false)
+            {
+                LorR = 1f;
+            }
+            else if (LorR < 0 && leftstrained == false)
+            {
+                LorR = -1f;
+            }
+            else
+            {
+                LorR = 0f;
+            }
 
-         
+            //handles when the enemy is colliding with a constraint dont let him move
+            if (LorR != 0)
+            {
+                rb.AddForce(new Vector3((LorR * chaseSpeed) * Time.deltaTime, rb.velocity.y, rb.velocity.z), ForceMode.Impulse);
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                rb.Sleep();
+            }
+        } 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -77,6 +80,7 @@ public class CollideEnemy : BaseEnemy
         }
     }
 
+    // Re-enable enemy movement when it has left the constrained region
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("leftConstraint"))
@@ -88,11 +92,10 @@ public class CollideEnemy : BaseEnemy
             rightstrained = false;
         }
     }
-    
 
+    // Player runs into enemey freeze enemy postion
     void OnCollisionEnter(Collision collision)
     {
-        // Player runs into enemey freeze enemy postion
         if (collision.gameObject.CompareTag("Player"))
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;

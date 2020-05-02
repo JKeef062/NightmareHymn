@@ -35,14 +35,10 @@ public class BaseEnemy : MonoBehaviour
             else
             {
                 //no need to create mana yet un comment when attack done
-                //Instantiate(manadrop,transform.position,transform.rotation);
+                Instantiate(manadrop,transform.position,transform.rotation);
             }
             Destroy(gameObject);
         }
-
-
-  
-        
     }
 
     void OnCollisionEnter(Collision other)

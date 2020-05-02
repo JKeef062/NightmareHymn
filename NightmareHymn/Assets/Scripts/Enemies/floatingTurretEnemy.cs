@@ -36,25 +36,29 @@ public class floatingTurretEnemy : BaseEnemy
     // Update is called once per frame
     void FixedUpdate()
     {
-        distance = Vector3.Distance(playerTransform.position, transform.position);
-        transform.LookAt(playerTransform);
-
-        //moving towards player
-        if (distance > SafetyDistance)
+        // Ensure player object exists
+        if (playerTransform != null)
         {
-            fireCount = 0;
-            //Debug.Log("Player is too far away MOVE NOW");
-            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+            distance = Vector3.Distance(playerTransform.position, transform.position);
+            transform.LookAt(playerTransform);
 
-        }
-        else
-        {
-            //Debug.Log("SHOOT distance");
-            if(fireCount % fireRate == 0)
+            //moving towards player
+            if (distance > SafetyDistance)
             {
-                Shoot();
+                fireCount = 0;
+                //Debug.Log("Player is too far away MOVE NOW");
+                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+
             }
-            fireCount++;
+            else
+            {
+                //Debug.Log("SHOOT distance");
+                if (fireCount % fireRate == 0)
+                {
+                    Shoot();
+                }
+                fireCount++;
+            }
         }
     }
 

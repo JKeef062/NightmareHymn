@@ -150,6 +150,8 @@ MonoBehaviour:
   fallingGravScale: 3
   isJumping: 0
   playerHealth: {fileID: 0}
+  PlayerDeath_part: {fileID: 1671679256703803271, guid: a9753a1b0699fbe498b392d75a3e982b,
+    type: 3}
 --- !u!54 &2635426633706790350
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -181,6 +183,7 @@ MonoBehaviour:
   baseBullet: {fileID: 3979120632781998166, guid: 41ce68e118e60914dbee2bdbeb8e3c5a,
     type: 3}
   firingRadius: {fileID: 3602558595460595821}
+  LavaCanon: {fileID: 0}
   firePoint: {fileID: 2635426632284030267}
   aimSpeed: 5
   mainCamera: {fileID: 0}

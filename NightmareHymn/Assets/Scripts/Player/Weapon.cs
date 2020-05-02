@@ -13,22 +13,34 @@ public class Weapon : MonoBehaviour
     public float aimSpeed = 5f;     // Defines how fast to change the firing angle
     public Camera mainCamera;       // Refernce to the in game camera
                                         // Used to reference the mouse position in game position
+    public ManaBar playerMana;      // Reference to the mana bar within the game's HUD
+                                        // Used to set mana to 0 when player decides to use
+                                        // secondary weapon
 
     void Update()
     {
-        // Constantly update the fire point to mouse location
-        SetFirePoint();
-        
-        // Check for user fire input
-        if (Input.GetButtonDown("Fire1"))
+        // Ensure that the firingRadius and firePoint are active
+            // NOTE: will be destroyed when the player is removed from the scene
+        if (firingRadius != null && firePoint != null)
         {
-            ShootBaseWeapon();
-        }
+            // Constantly update the fire point to mouse location
+            SetFirePoint();
 
-        // Handle shooting secondary weapon  ADD DEPENDANCY ON MANA!!!!!!!!
-        if (Input.GetButtonDown("Fire2")) 
-        {
-            ShootSecondaryWeapon();
+            // Check for user fire input
+            if (Input.GetButtonDown("Fire1"))
+            {
+                ShootBaseWeapon();
+            }
+
+            // Handle shooting secondary weapon
+                // Only activate if the player has collected 2+ mana
+            if (Input.GetButtonDown("Fire2") && PlayerController.mana >= 2)
+            {
+                Debug.Log("Shooting Secondary: current mana = " + PlayerController.mana);
+                ShootSecondaryWeapon();
+                PlayerController.mana = 0;
+                playerMana.UpdateMana();
+            }
         }
     }
 

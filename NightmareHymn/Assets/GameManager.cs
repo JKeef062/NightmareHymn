@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public void WinLevel()
     {
         Debug.Log("WIN LEVEL!");
+        SceneManager.LoadScene("Ryanlvl2");
     }
 
     // Defines the behavior in the event the game has reached the game over state
