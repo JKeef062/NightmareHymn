@@ -17,13 +17,10 @@
   * music added to levels
   * art added to level 2
 
-### Lessons Learned & Future Improvements
+### Future Improvements
   * level 2 not fully complete
   * charging ai not, bug with constraints  
   * boss ai is difficult and takes a lot of time
-
-  *Explanation:*  
-     with classes moving online productivity took a little bit of a hit while trying to adjust, also it made meeting to work on issues together harder. We have figured out a time to meet on discord during the week so we should not have too much difficulty working together.
 
 
 # Final Functionality  
