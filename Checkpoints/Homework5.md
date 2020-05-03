@@ -18,4 +18,5 @@
      with classes moving online productivity took a little bit of a hit while trying to adjust, also it made meeting to work on issues together harder. We have figured out a time to meet on discord during the week so we should not have too much difficulty working together.
     
 # Final Functionality  
-![Full Game Playthrough Showing All Functionality](https://drive.google.com/open?id=1v7VGN-Ohab1G5YVYQVF3UP2OhoqvMt76)    
+Full Game Playthrough Showing All Functionality
+https://drive.google.com/open?id=1v7VGN-Ohab1G5YVYQVF3UP2OhoqvMt76
