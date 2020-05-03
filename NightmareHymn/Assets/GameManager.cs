@@ -15,7 +15,15 @@ public class GameManager : MonoBehaviour
     public void WinLevel()
     {
         Debug.Log("WIN LEVEL!");
-        SceneManager.LoadScene("Ryanlvl2");
+        if (SceneManager.GetActiveScene().name == "JaredLv1_Alpha")
+        {
+            SceneManager.LoadScene("Ryanlvl2");
+        }
+        else
+        {
+            SceneManager.LoadScene("StartMenu");
+        }
+        
     }
 
     // Defines the behavior in the event the game has reached the game over state
@@ -25,11 +33,11 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
             Debug.Log("Game Over");
-            Invoke("RestartGame", restartDelay);
+            Invoke("RestartLevel", restartDelay);
         }
     }
 
-    void RestartGame()
+    void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

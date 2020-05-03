@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //public static int numPlayers = 0;   // Holds the number of player objects that are currently in 
+                                        // memory. 
+                                            // NOTE: Used to enforce singleton design pattern
+
     public float moveSpeed;             // Movement speed of the player
     public int health;                  // Maintains player health
     public static int mana;             // Holds player mana count (used to fire secondary weapon)
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //numPlayers++;
         theRB = GetComponent<Rigidbody>();
         
         // Initialize player variable components
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
         // Handle player death
         if (isDead() == true && transform != null)
         {
+            //numPlayers--;
             Debug.Log("In isDead area of playerController");
             // Spawn death particles and destroy the player object
             Instantiate(PlayerDeath_part, transform.position, Quaternion.Euler(new Vector3(-100, 0, 0)));
