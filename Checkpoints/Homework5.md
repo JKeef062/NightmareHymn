@@ -16,16 +16,8 @@
 
   *Explanation:*  
      with classes moving online productivity took a little bit of a hit while trying to adjust, also it made meeting to work on issues together harder. We have figured out a time to meet on discord during the week so we should not have too much difficulty working together.
-
-# Planned Project Status at Next Deadline (Bold Entries Signify Incomplete Tasks From Previous Deadlines)
-    * level 2 mostly if not fully complete
-    * music possibly done for levels
-    * charging AI done
-    * multiple bullet types
-    * health pickups
-    * boss for level 2 possibly started
     
-# Current Functionality  
+# Final Functionality  
 ![Turret AI and Killing Enemies](https://github.com/OdinsWrath/NightmareHymn_Development/tree/master/Deadline_GIFs/TurretAI_BulletInteraction.gif)   
 This simple AI has the floating turret follow the players location until it is within a certain distance that it begins shooting at the player. The code for this behavior can be seen in the 'Assets/Scripts/Enemies/floatingTurretEnemy.cs' script. It simply has a reference to the players current game location and moves at the specified speed towards the player using a vector that constantly points at the player.  
 
