@@ -1,6 +1,8 @@
 # NIGHTMARE HYMN
 ## By: Ryan Kenfield and Jared Keefer Game Development Project
+<img src="https://media.giphy.com/media/aqnTZXgrT91AHriyBn/giphy.gif" width="700" align=center>
 
+## Description
 All files and resources in this repo were created using the Unity 2019.3.3f1 environment. As such,  
 all versions of this project, not including the final executable, must be built and run on the same  
 version of this game engine. This engine also requires Visual Studio 17 or later to allow editing  
