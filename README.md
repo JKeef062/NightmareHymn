@@ -4,7 +4,7 @@
 All files and resources in this repo were created using the Unity 2019.3.3f1 environment. As such,  
 all versions of this project, not including the final executable, must be built and run on the same  
 version of this game engine. This engine also requires Visual Studio 17 or later to allow editing  
-and viewing of the C++ source files. To install these required components use the following steps;  
+and viewing of the C# source files. To install these required components use the following steps;  
   ## Unity:   
     1. Navigate to https://store.unity.com/
     2. Select the 'Individual' tab for a full free version without any add ons.
