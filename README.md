@@ -3,6 +3,10 @@
 <img src="https://media.giphy.com/media/aqnTZXgrT91AHriyBn/giphy.gif" width="700" align=center>
 
 ## Description
+This is a very simple 2.5d shooting/platformer game where the player traverses 2 levels. These two levels  
+represent the musical genres Disco and Metal respectively. To traverse the levels the user has access to  
+double jump, wall jump, and 360 degree shooting.  
+  
 All files and resources in this repo were created using the Unity 2019.3.3f1 environment. As such,  
 all versions of this project, not including the final executable, must be built and run on the same  
 version of this game engine. This engine also requires Visual Studio 17 or later to allow editing  
